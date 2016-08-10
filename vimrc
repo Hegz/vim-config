@@ -21,6 +21,8 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -45,17 +47,17 @@ set foldlevel=99
 nnoremap <space> za
 
 " Set PEP8 for Python files
+
 au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+	\ set tabstop=4
+    \ softtabstop=4
+    \ shiftwidth=4
+    \ textwidth=79
+    \ autoindent
+    \ fileformat=unix
 
 " Flag extranious whitespace
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match ExtraWhitespace /\s\+$/
 
 " Enable UTF-8 Support
 set encoding=utf-8
@@ -96,6 +98,8 @@ if has('gui_running')
 else
 	colorscheme zenburn
 endif
+
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 
 if has("autocmd")
 	" Restore cursor position and set line
